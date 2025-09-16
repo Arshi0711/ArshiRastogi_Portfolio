@@ -218,7 +218,8 @@ async def get_testimonials(approved_only: bool = True):
     try:
         query = {"approved": True} if approved_only else {}
         testimonials = await db.testimonials.find(query).sort("created_at", -1).to_list(100)
-        return {"testimonials": testimonials}
+        serialized_testimonials = serialize_docs(testimonials)
+        return {"testimonials": serialized_testimonials}
     except Exception as e:
         logger.error(f"Failed to fetch testimonials: {str(e)}")
         raise HTTPException(status_code=500, detail="Failed to fetch testimonials")
