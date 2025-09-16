@@ -83,15 +83,16 @@ const HeroSection = ({ scrollToSection }) => {
             </div>
           </div>
 
-          {/* Right Content - Image */}
+          {/* Right Content - Decorative Elements */}
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
-              <div className="w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-gradient-to-r from-purple-400 to-cyan-400 shadow-2xl">
-                <img 
-                  src={hero.heroImage}
-                  alt={hero.name}
-                  className="w-full h-full object-cover"
-                />
+              <div className="w-80 h-80 md:w-96 md:h-96 rounded-full bg-gradient-to-br from-purple-600/20 to-cyan-600/20 backdrop-blur-sm border-4 border-gradient-to-r from-purple-400 to-cyan-400 shadow-2xl flex items-center justify-center">
+                <div className="text-center">
+                  <div className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent mb-4">
+                    AR
+                  </div>
+                  <div className="text-gray-300 text-lg">Data Scientist</div>
+                </div>
               </div>
               {/* Floating Elements */}
               <div className="absolute -top-4 -right-4 bg-purple-600 rounded-full p-3 animate-bounce">
