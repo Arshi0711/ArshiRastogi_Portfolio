@@ -5,7 +5,35 @@ import { Button } from './ui/button';
 import { Calendar, Clock, ArrowRight, BookOpen } from 'lucide-react';
 
 const BlogSection = () => {
-  const { blogPosts } = mockData;
+  const [blogPosts, setBlogPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchBlogPosts = async () => {
+      try {
+        const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+        const response = await fetch(`${BACKEND_URL}/api/blog/posts`);
+        
+        if (response.ok) {
+          const data = await response.json();
+          setBlogPosts(data.posts || []);
+        } else {
+          throw new Error('Failed to fetch blog posts');
+        }
+      } catch (err) {
+        console.error('Error fetching blog posts:', err);
+        setError(err.message);
+        // Fallback to empty array or show error
+        setBlogPosts([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBlogPosts();
+  }, []);
+
   const featuredPosts = blogPosts.slice(0, 3);
 
   return (
