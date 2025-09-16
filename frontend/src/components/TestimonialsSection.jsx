@@ -65,6 +65,13 @@ const TestimonialsSection = () => {
   }, [testimonials.length]);
 
   const currentTestimonial = testimonials.length > 0 ? testimonials[currentIndex] || testimonials[0] : null;
+  
+  // Debug log
+  React.useEffect(() => {
+    if (currentTestimonial) {
+      console.log('Current testimonial:', currentIndex, currentTestimonial.name, currentTestimonial.content.substring(0, 30));
+    }
+  }, [currentIndex, currentTestimonial]);
 
   // If no testimonials, show placeholder
   if (loading) {
