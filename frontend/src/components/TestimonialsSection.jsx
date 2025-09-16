@@ -121,23 +121,23 @@ const TestimonialsSection = () => {
 
                 {/* Testimonial Content */}
                 <blockquote className="text-xl md:text-2xl text-gray-300 leading-relaxed italic font-medium">
-                  "{currentTestimonial?.content || 'Loading testimonial...'}"
+                  "{currentTestimonial ? currentTestimonial.content : 'Loading testimonial...'}"
                 </blockquote>
 
                 {/* Author Info */}
                 <div className="flex items-center justify-center gap-4">
                   <Avatar className="h-16 w-16 border-2 border-purple-400">
                     <AvatarFallback className="bg-purple-600 text-white">
-                      {currentTestimonial?.name?.split(' ').map(n => n[0]).join('') || 'AR'}
+                      {currentTestimonial && currentTestimonial.name ? currentTestimonial.name.split(' ').map(n => n[0]).join('') : 'AR'}
                     </AvatarFallback>
                   </Avatar>
                   
                   <div className="text-left">
                     <h4 className="text-lg font-bold text-purple-400">
-                      {currentTestimonial?.name || 'Loading...'}
+                      {currentTestimonial ? currentTestimonial.name : 'Loading...'}
                     </h4>
                     <p className="text-gray-400">
-                      {currentTestimonial?.role || 'Client'}
+                      {currentTestimonial ? currentTestimonial.role : 'Client'}
                     </p>
                   </div>
                 </div>
