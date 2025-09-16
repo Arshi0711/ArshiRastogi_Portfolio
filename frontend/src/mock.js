@@ -41,12 +41,19 @@ export const mockData = {
     {
       id: 3,
       title: "Technical Writing & Content",
-      description: "SEO-optimized technical articles, research papers, and educational content in astronomy, data science, and STEM fields.",
+      description: "SEO-optimized technical articles, educational content, and blog posts in astronomy, data science, and STEM fields.",
       icon: "PenTool",
-      features: ["Technical Documentation", "SEO Content", "Research Papers", "Educational Materials"]
+      features: ["Technical Documentation", "SEO Content", "Blog Writing", "Educational Materials"]
     },
     {
       id: 4,
+      title: "Curriculum Development",
+      description: "Custom curriculum design for educational institutions and online platforms, specializing in mathematics, science, and data science programs.",
+      icon: "BookOpen",
+      features: ["Course Design", "Assessment Creation", "Learning Pathways", "Educational Standards"]
+    },
+    {
+      id: 5,
       title: "Online Tutoring",
       description: "Mathematics and Science tutoring for K-12 students with application-based learning methodologies and personalized assessments.",
       icon: "GraduationCap",
