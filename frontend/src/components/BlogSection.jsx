@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import { Calendar, Clock, ArrowRight, BookOpen } from 'lucide-react';
-import { mockData } from '../mock';
 
 const BlogSection = () => {
   const { blogPosts } = mockData;
