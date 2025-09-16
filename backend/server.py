@@ -18,6 +18,7 @@ from models import (
 from services.email_service import EmailService
 from services.payment_service import PaymentService
 from utils.slug_generator import generate_slug, ensure_unique_slug
+from utils.db_utils import serialize_doc, serialize_docs
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
