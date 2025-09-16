@@ -38,12 +38,7 @@ const SkillsSection = () => {
                   <div key={index} className="space-y-2">
                     <div className="flex justify-between items-center">
                       <span className="text-gray-300 font-medium">{skill.name}</span>
-                      <div className="flex items-center gap-2">
-                        <span className="text-sm text-purple-400">{skill.level}%</span>
-                        <Badge variant="outline" className="border-cyan-400 text-cyan-400 text-xs">
-                          {skill.years}y
-                        </Badge>
-                      </div>
+                      <span className="text-sm text-purple-400">{skill.level}%</span>
                     </div>
                     <Progress 
                       value={skill.level} 
