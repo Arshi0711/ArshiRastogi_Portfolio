@@ -129,7 +129,6 @@ const TestimonialsSection = () => {
             >
               <CardContent className="p-6 text-center">
                 <Avatar className="h-12 w-12 mx-auto mb-4">
-                  <AvatarImage src={testimonial.image} alt={testimonial.name} />
                   <AvatarFallback className="bg-cyan-600 text-white text-sm">
                     {testimonial.name.split(' ').map(n => n[0]).join('')}
                   </AvatarFallback>
