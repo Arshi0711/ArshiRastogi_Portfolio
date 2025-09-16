@@ -102,11 +102,11 @@ const BlogSection = () => {
                   <div className="flex items-center gap-4 text-xs text-gray-400">
                     <div className="flex items-center gap-1">
                       <Calendar className="h-3 w-3" />
-                      <span>{new Date(post.date).toLocaleDateString()}</span>
+                      <span>{new Date(post.created_at || post.date).toLocaleDateString()}</span>
                     </div>
                     <div className="flex items-center gap-1">
                       <Clock className="h-3 w-3" />
-                      <span>{post.readTime}</span>
+                      <span>{post.readTime || '5 min read'}</span>
                     </div>
                   </div>
                   
