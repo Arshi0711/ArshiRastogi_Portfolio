@@ -19,6 +19,7 @@ const TestimonialsSection = () => {
         if (response.ok) {
           const data = await response.json();
           setTestimonials(data.testimonials || []);
+          setCurrentIndex(0); // Reset to first testimonial
         } else {
           throw new Error('Failed to fetch testimonials');
         }
