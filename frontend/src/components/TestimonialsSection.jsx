@@ -62,7 +62,6 @@ const TestimonialsSection = () => {
                 {/* Author Info */}
                 <div className="flex items-center justify-center gap-4">
                   <Avatar className="h-16 w-16 border-2 border-purple-400">
-                    <AvatarImage src={currentTestimonial.image} alt={currentTestimonial.name} />
                     <AvatarFallback className="bg-purple-600 text-white">
                       {currentTestimonial.name.split(' ').map(n => n[0]).join('')}
                     </AvatarFallback>
