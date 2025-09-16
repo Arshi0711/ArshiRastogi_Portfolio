@@ -16,7 +16,7 @@ export const mockData = {
     highlights: [
       "MRes in Astronomy & Astrophysics from University of Manchester",
       "3+ years experience in Python and Machine Learning",
-      "Published researcher in radio astronomy and galactic astrophysics",
+      "Radio astronomy researcher specializing in galactic astrophysics",
       "International certified career coach",
       "Teaching experience across K-12 and university levels"
     ]
