@@ -60,31 +60,74 @@ const ConsultationSection = () => {
     }
   ];
 
-  const handleBookConsultation = (packageInfo) => {
+  const handleBookConsultation = async (packageInfo) => {
     setIsBookingStarted(true);
     
-    // Mock payment and booking process
-    toast({
-      title: "Booking Started!",
-      description: `Starting payment process for ${packageInfo.title} - $${packageInfo.price}`,
-    });
-
-    // Simulate payment process
-    setTimeout(() => {
-      toast({
-        title: "Payment Successful!",
-        description: "You will be redirected to Calendly to schedule your session.",
-      });
+    try {
+      // First, collect client information (in a real app, this would be a modal/form)
+      const clientName = prompt("Please enter your full name:");
+      const clientEmail = prompt("Please enter your email address:");
       
-      // In real implementation, this would integrate with Stripe/PayPal and then Calendly
-      setTimeout(() => {
+      if (!clientName || !clientEmail) {
         toast({
-          title: "Booking Complete!",
-          description: "Your consultation has been scheduled. Check your email for confirmation.",
+          title: "Booking Cancelled",
+          description: "Name and email are required to proceed with booking.",
+          variant: "destructive"
         });
         setIsBookingStarted(false);
-      }, 2000);
-    }, 1500);
+        return;
+      }
+
+      toast({
+        title: "Booking Started!",
+        description: `Creating booking for ${packageInfo.title} - $${packageInfo.price}`,
+      });
+
+      const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+      const response = await fetch(`${BACKEND_URL}/api/consultation/book`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          client_name: clientName,
+          client_email: clientEmail,
+          package_id: packageInfo.id,
+          payment_method: "stripe", // Default to Stripe
+          amount: packageInfo.price,
+          currency: "USD"
+        })
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        toast({
+          title: "Booking Created!",
+          description: "Redirecting to payment...",
+        });
+        
+        // In a real implementation, redirect to payment URL
+        setTimeout(() => {
+          toast({
+            title: "Payment Processing",
+            description: "You will be redirected to complete payment and schedule your session.",
+          });
+        }, 1000);
+        
+      } else {
+        throw new Error(result.detail || 'Failed to create booking');
+      }
+      
+    } catch (error) {
+      toast({
+        title: "Booking Failed",
+        description: error.message || "Failed to create booking. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsBookingStarted(false);
+    }
   };
 
   return (
