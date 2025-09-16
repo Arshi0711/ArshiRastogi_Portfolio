@@ -235,6 +235,36 @@ async def create_testimonial(testimonial_data: TestimonialCreate):
         logger.error(f"Testimonial creation failed: {str(e)}")
         raise HTTPException(status_code=500, detail="Failed to submit testimonial")
 
+@api_router.put("/testimonials/{testimonial_id}/approve", response_model=SuccessResponse)
+async def approve_testimonial(testimonial_id: str):
+    """Approve testimonial (admin only)"""
+    try:
+        result = await db.testimonials.update_one(
+            {"id": testimonial_id},
+            {"$set": {"approved": True}}
+        )
+        if result.modified_count == 0:
+            raise HTTPException(status_code=404, detail="Testimonial not found")
+        return SuccessResponse(message="Testimonial approved successfully")
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Testimonial approval failed: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to approve testimonial")
+
+@api_router.put("/testimonials/approve-all", response_model=SuccessResponse)
+async def approve_all_testimonials():
+    """Approve all testimonials (admin only)"""
+    try:
+        result = await db.testimonials.update_many(
+            {"approved": False},
+            {"$set": {"approved": True}}
+        )
+        return SuccessResponse(message=f"Approved {result.modified_count} testimonials")
+    except Exception as e:
+        logger.error(f"Bulk testimonial approval failed: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to approve testimonials")
+
 # ==================== CV DOWNLOAD ENDPOINT ====================
 
 @api_router.get("/cv/download")
