@@ -18,6 +18,7 @@ const TestimonialsSection = () => {
         
         if (response.ok) {
           const data = await response.json();
+          console.log('Testimonials loaded:', data.testimonials);
           setTestimonials(data.testimonials || []);
           setCurrentIndex(0); // Reset to first testimonial
         } else {
