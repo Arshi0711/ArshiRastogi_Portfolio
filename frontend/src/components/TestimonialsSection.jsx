@@ -111,83 +111,89 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Main Testimonial Display */}
-        <div className="max-w-4xl mx-auto">
-          <Card className="bg-gray-800/50 border-gray-700 relative overflow-hidden">
-            <div className="absolute top-6 left-6">
-              <Quote className="h-12 w-12 text-purple-400/30" />
-            </div>
-            
-            <CardContent className="p-12 text-center">
-              <div className="space-y-8">
-                {/* Stars Rating */}
-                <div className="flex justify-center gap-1">
-                  {[...Array(currentTestimonial?.rating || 5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-                  ))}
+        {testimonials.length > 0 && (
+          <>
+            <div className="max-w-4xl mx-auto">
+              <Card className="bg-gray-800/50 border-gray-700 relative overflow-hidden">
+                <div className="absolute top-6 left-6">
+                  <Quote className="h-12 w-12 text-purple-400/30" />
                 </div>
+                
+                <CardContent className="p-12 text-center">
+                  <div className="space-y-8">
+                    {/* Stars Rating */}
+                    <div className="flex justify-center gap-1">
+                      {[...Array(currentTestimonial?.rating || 5)].map((_, i) => (
+                        <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                      ))}
+                    </div>
 
-                {/* Testimonial Content */}
-                <blockquote className="text-xl md:text-2xl text-gray-300 leading-relaxed italic font-medium">
-                  "{currentTestimonial ? currentTestimonial.content : 'Loading testimonial...'}"
-                </blockquote>
+                    {/* Testimonial Content */}
+                    <blockquote className="text-xl md:text-2xl text-gray-300 leading-relaxed italic font-medium">
+                      "{currentTestimonial ? currentTestimonial.content : 'Loading testimonial...'}"
+                    </blockquote>
 
-                {/* Author Info */}
-                <div className="flex items-center justify-center gap-4">
-                  <Avatar className="h-16 w-16 border-2 border-purple-400">
-                    <AvatarFallback className="bg-purple-600 text-white">
-                      {currentTestimonial && currentTestimonial.name ? currentTestimonial.name.split(' ').map(n => n[0]).join('') : 'AR'}
-                    </AvatarFallback>
-                  </Avatar>
-                  
-                  <div className="text-left">
-                    <h4 className="text-lg font-bold text-purple-400">
-                      {currentTestimonial ? currentTestimonial.name : 'Loading...'}
-                    </h4>
-                    <p className="text-gray-400">
-                      {currentTestimonial ? currentTestimonial.role : 'Client'}
-                    </p>
+                    {/* Author Info */}
+                    <div className="flex items-center justify-center gap-4">
+                      <Avatar className="h-16 w-16 border-2 border-purple-400">
+                        <AvatarFallback className="bg-purple-600 text-white">
+                          {currentTestimonial && currentTestimonial.name ? currentTestimonial.name.split(' ').map(n => n[0]).join('') : 'AR'}
+                        </AvatarFallback>
+                      </Avatar>
+                      
+                      <div className="text-left">
+                        <h4 className="text-lg font-bold text-purple-400">
+                          {currentTestimonial ? currentTestimonial.name : 'Loading...'}
+                        </h4>
+                        <p className="text-gray-400">
+                          {currentTestimonial ? currentTestimonial.role : 'Client'}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Navigation Controls */}
+            <div className="flex justify-center items-center gap-4 mt-8">
+              <Button
+                onClick={prevTestimonial}
+                variant="outline"
+                size="icon"
+                className="border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white rounded-full"
+                disabled={testimonials.length <= 1}
+              >
+                <ChevronLeft className="h-4 w-4" />
+              </Button>
+
+              {/* Dots Indicator */}
+              <div className="flex gap-2">
+                {testimonials.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentIndex(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      index === currentIndex 
+                        ? 'bg-purple-400 w-8' 
+                        : 'bg-gray-600 hover:bg-gray-500'
+                    }`}
+                  />
+                ))}
               </div>
-            </CardContent>
-          </Card>
-        </div>
 
-        {/* Navigation Controls */}
-        <div className="flex justify-center items-center gap-4 mt-8">
-          <Button
-            onClick={prevTestimonial}
-            variant="outline"
-            size="icon"
-            className="border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white rounded-full"
-          >
-            <ChevronLeft className="h-4 w-4" />
-          </Button>
-
-          {/* Dots Indicator */}
-          <div className="flex gap-2">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentIndex 
-                    ? 'bg-purple-400 w-8' 
-                    : 'bg-gray-600 hover:bg-gray-500'
-                }`}
-              />
-            ))}
-          </div>
-
-          <Button
-            onClick={nextTestimonial}
-            variant="outline"
-            size="icon"
-            className="border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white rounded-full"
-          >
-            <ChevronRight className="h-4 w-4" />
-          </Button>
-        </div>
+              <Button
+                onClick={nextTestimonial}
+                variant="outline"
+                size="icon"
+                className="border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white rounded-full"
+                disabled={testimonials.length <= 1}
+              >
+                <ChevronRight className="h-4 w-4" />
+              </Button>
+            </div>
+          </>
+        )}
 
         {/* All Testimonials Preview */}
         {testimonials.length > 1 && (
