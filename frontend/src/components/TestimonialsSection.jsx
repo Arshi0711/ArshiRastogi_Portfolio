@@ -56,7 +56,7 @@ const TestimonialsSection = () => {
     }
   }, [testimonials.length]);
 
-  const currentTestimonial = testimonials.length > 0 && currentIndex < testimonials.length ? testimonials[currentIndex] : testimonials[0];
+  const currentTestimonial = testimonials.length > 0 ? testimonials[currentIndex] || testimonials[0] : null;
 
   // If no testimonials, show placeholder
   if (loading) {
