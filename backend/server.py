@@ -154,7 +154,8 @@ async def get_blog_post_by_slug(slug: str):
         post = await db.blog_posts.find_one({"slug": slug, "published": True})
         if not post:
             raise HTTPException(status_code=404, detail="Blog post not found")
-        return {"post": post}
+        serialized_post = serialize_doc(post)
+        return {"post": serialized_post}
     except HTTPException:
         raise
     except Exception as e:
