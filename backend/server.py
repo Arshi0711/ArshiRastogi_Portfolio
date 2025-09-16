@@ -74,7 +74,8 @@ async def get_all_contacts():
     """Get all contact form submissions (admin only)"""
     try:
         contacts = await db.contacts.find().sort("created_at", -1).to_list(100)
-        return {"contacts": contacts}
+        serialized_contacts = serialize_docs(contacts)
+        return {"contacts": serialized_contacts}
     except Exception as e:
         logger.error(f"Failed to fetch contacts: {str(e)}")
         raise HTTPException(status_code=500, detail="Failed to fetch contacts")
