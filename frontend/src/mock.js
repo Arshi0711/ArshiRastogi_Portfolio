@@ -209,7 +209,6 @@ export const mockData = {
       { name: "Python", level: 90 },
       { name: "Machine Learning", level: 85 },
       { name: "Data Visualization", level: 88 },
-      { name: "Power BI", level: 80 },
       { name: "Statistical Analysis", level: 85 },
       { name: "LaTeX", level: 75 },
       { name: "SQL", level: 70 },
