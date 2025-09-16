@@ -50,6 +50,45 @@ const TestimonialsSection = () => {
 
   const currentTestimonial = testimonials[currentIndex];
 
+  // If no testimonials, show placeholder
+  if (loading) {
+    return (
+      <section id="testimonials" className="py-20">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Client <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">Testimonials</span>
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-cyan-400 mx-auto rounded-full mt-6" />
+          </div>
+          <div className="text-center py-12">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-400 mx-auto mb-4"></div>
+            <p className="text-gray-300">Loading testimonials...</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (error || testimonials.length === 0) {
+    return (
+      <section id="testimonials" className="py-20">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Client <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">Testimonials</span>
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-cyan-400 mx-auto rounded-full mt-6" />
+          </div>
+          <div className="text-center py-12">
+            <p className="text-gray-300">No testimonials available yet.</p>
+            <p className="text-gray-500 text-sm mt-2">Check back soon for client feedback!</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section id="testimonials" className="py-20">
       <div className="container mx-auto px-6">
