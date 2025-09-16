@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
-import { BarChart3, Telescope, PenTool, GraduationCap, ArrowRight } from 'lucide-react';
+import { BarChart3, Telescope, PenTool, GraduationCap, BookOpen, ArrowRight } from 'lucide-react';
 import { mockData } from '../mock';
 
 const ServicesSection = () => {
