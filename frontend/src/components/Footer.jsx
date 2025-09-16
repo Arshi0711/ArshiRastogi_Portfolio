@@ -19,6 +19,7 @@ const Footer = () => {
     'Data Science Consulting',
     'Astronomy Career Guidance',
     'Technical Writing',
+    'Curriculum Development',
     'Online Tutoring'
   ];
 
