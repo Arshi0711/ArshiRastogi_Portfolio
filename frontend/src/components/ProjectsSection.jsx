@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import { ExternalLink, Filter } from 'lucide-react';
-import { mockData } from '../mock';
 
 const ProjectsSection = () => {
   const { projects } = mockData;
