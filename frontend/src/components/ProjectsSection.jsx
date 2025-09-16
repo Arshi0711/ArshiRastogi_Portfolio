@@ -5,8 +5,34 @@ import { Button } from './ui/button';
 import { ExternalLink, Filter } from 'lucide-react';
 
 const ProjectsSection = () => {
-  const { projects } = mockData;
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [activeFilter, setActiveFilter] = useState('All');
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+        const response = await fetch(`${BACKEND_URL}/api/projects`);
+        
+        if (response.ok) {
+          const data = await response.json();
+          setProjects(data.projects || []);
+        } else {
+          throw new Error('Failed to fetch projects');
+        }
+      } catch (err) {
+        console.error('Error fetching projects:', err);
+        setError(err.message);
+        setProjects([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProjects();
+  }, []);
   
   const categories = ['All', ...new Set(projects.map(project => project.category))];
   
