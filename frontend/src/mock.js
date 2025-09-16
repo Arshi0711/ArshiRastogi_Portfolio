@@ -253,8 +253,8 @@ export const mockData = {
     email: "shranviras007@gmail.com",
     phone: "+91 6393635690",
     location: "Lucknow, Uttar Pradesh, India",
-    linkedIn: "https://linkedin.com/in/arshi-rastogi",
+    linkedIn: "https://www.linkedin.com/in/arshi-rastogi",
     github: "https://github.com/arshi-rastogi",
-    twitter: "https://twitter.com/arshi_astro"
+    twitter: "https://x.com/ArshiRastogi_07?t=o2mvSTE7hQsi8BcY7IW2KQ&s=09"
   }
 };
