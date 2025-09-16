@@ -3,7 +3,6 @@ import { Card, CardContent } from './ui/card';
 import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar';
 import { Button } from './ui/button';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
-import { mockData } from '../mock';
 
 const TestimonialsSection = () => {
   const { testimonials } = mockData;
