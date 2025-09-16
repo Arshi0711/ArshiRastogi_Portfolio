@@ -13,8 +13,9 @@ const ConsultationSection = () => {
     {
       id: 1,
       title: "Career Guidance Session",
-      duration: "45 minutes",
-      price: 20,
+      duration: "60 minutes",
+      price: 30,
+      priceINR: "₹2,500",
       description: "Personalized career counseling for astronomy and data science paths",
       features: [
         "Career roadmap development",
@@ -29,7 +30,8 @@ const ConsultationSection = () => {
       id: 2,
       title: "Technical Mentoring",
       duration: "60 minutes", 
-      price: 30,
+      price: 35,
+      priceINR: "₹2,900",
       description: "Deep-dive technical guidance on data science projects and methodologies",
       features: [
         "Code review and optimization",
@@ -37,21 +39,6 @@ const ConsultationSection = () => {
         "Data analysis best practices",
         "Technical problem solving",
         "Industry tools and frameworks"
-      ],
-      popular: false
-    },
-    {
-      id: 3,
-      title: "Research Consultation",
-      duration: "60 minutes",
-      price: 35,
-      description: "Academic research guidance for astronomy and astrophysics projects",
-      features: [
-        "Research methodology guidance",
-        "Paper writing and publication",
-        "Data interpretation help",
-        "Statistical analysis support",
-        "Academic career planning"
       ],
       popular: false
     }
