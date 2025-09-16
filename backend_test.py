@@ -192,7 +192,7 @@ def main():
         "amount": 30,
         "currency": "USD"
     }
-    tester.test_endpoint("POST", "/consultation/book", data=invalid_booking, expected_status=400, test_name="Invalid Package ID")
+    tester.test_endpoint("POST", "/consultation/book", data=invalid_booking, expected_status=422, test_name="Invalid Package ID (Validation Error)")
     
     # Test non-existent blog post
     tester.test_endpoint("GET", "/blog/posts/non-existent-slug", expected_status=404, test_name="Non-existent Blog Post")
