@@ -5,8 +5,34 @@ import { Button } from './ui/button';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const TestimonialsSection = () => {
-  const { testimonials } = mockData;
+  const [testimonials, setTestimonials] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const fetchTestimonials = async () => {
+      try {
+        const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+        const response = await fetch(`${BACKEND_URL}/api/testimonials`);
+        
+        if (response.ok) {
+          const data = await response.json();
+          setTestimonials(data.testimonials || []);
+        } else {
+          throw new Error('Failed to fetch testimonials');
+        }
+      } catch (err) {
+        console.error('Error fetching testimonials:', err);
+        setError(err.message);
+        setTestimonials([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTestimonials();
+  }, []);
 
   const nextTestimonial = () => {
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
