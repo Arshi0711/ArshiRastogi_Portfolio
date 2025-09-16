@@ -113,30 +113,30 @@ const TestimonialsSection = () => {
               <div className="space-y-8">
                 {/* Stars Rating */}
                 <div className="flex justify-center gap-1">
-                  {[...Array(currentTestimonial.rating)].map((_, i) => (
+                  {[...Array(currentTestimonial?.rating || 5)].map((_, i) => (
                     <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
 
                 {/* Testimonial Content */}
                 <blockquote className="text-xl md:text-2xl text-gray-300 leading-relaxed italic font-medium">
-                  "{currentTestimonial.content}"
+                  "{currentTestimonial?.content || 'Loading testimonial...'}"
                 </blockquote>
 
                 {/* Author Info */}
                 <div className="flex items-center justify-center gap-4">
                   <Avatar className="h-16 w-16 border-2 border-purple-400">
                     <AvatarFallback className="bg-purple-600 text-white">
-                      {currentTestimonial.name.split(' ').map(n => n[0]).join('')}
+                      {currentTestimonial?.name?.split(' ').map(n => n[0]).join('') || 'AR'}
                     </AvatarFallback>
                   </Avatar>
                   
                   <div className="text-left">
                     <h4 className="text-lg font-bold text-purple-400">
-                      {currentTestimonial.name}
+                      {currentTestimonial?.name || 'Loading...'}
                     </h4>
                     <p className="text-gray-400">
-                      {currentTestimonial.role}
+                      {currentTestimonial?.role || 'Client'}
                     </p>
                   </div>
                 </div>
