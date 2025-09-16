@@ -49,7 +49,7 @@ const TestimonialsSection = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const currentTestimonial = testimonials[currentIndex];
+  const currentTestimonial = testimonials.length > 0 ? testimonials[currentIndex] : null;
 
   // If no testimonials, show placeholder
   if (loading) {
