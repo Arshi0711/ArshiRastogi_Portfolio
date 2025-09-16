@@ -30,8 +30,8 @@ const ConsultationSection = () => {
       id: 2,
       title: "Technical Mentoring",
       duration: "60 minutes", 
-      price: 35,
-      priceINR: "₹2,900",
+      price: 60,
+      priceINR: "₹5,000",
       description: "Deep-dive technical guidance on data science projects and methodologies",
       features: [
         "Code review and optimization",
@@ -39,6 +39,22 @@ const ConsultationSection = () => {
         "Data analysis best practices",
         "Technical problem solving",
         "Industry tools and frameworks"
+      ],
+      popular: false
+    },
+    {
+      id: 3,
+      title: "Curriculum Development",
+      duration: "90 minutes",
+      price: 80,
+      priceINR: "₹6,700",
+      description: "Custom curriculum design consultation for educational institutions and programs",
+      features: [
+        "Course structure development",
+        "Learning objectives design",
+        "Assessment strategy planning",
+        "Educational standards alignment",
+        "Implementation roadmap"
       ],
       popular: false
     }
