@@ -301,7 +301,9 @@ async def startup_event():
         
         # Seed initial blog posts if none exist
         existing_posts = await db.blog_posts.count_documents({})
-        if existing_posts == 0:
+        existing_testimonials = await db.testimonials.count_documents({})
+        
+        if existing_posts == 0 or existing_testimonials == 0:
             await seed_initial_data()
             
     except Exception as e:
