@@ -72,79 +72,81 @@ const BlogSection = () => {
 
         {/* Featured Blog Posts */}
         {!loading && !error && (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {featuredPosts.length > 0 ? featuredPosts.map((post) => (
-            <Card key={post.id} className="bg-gray-800/50 border-gray-700 hover:border-purple-400/50 transition-all duration-300 group overflow-hidden cursor-pointer">
-              <div className="relative overflow-hidden">
-                <img 
-                  src={post.image}
-                  alt={post.title}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-60" />
-                <Badge 
-                  className="absolute top-4 left-4 bg-purple-600/90 text-white"
-                >
-                  {post.category}
-                </Badge>
-              </div>
-              
-              <CardContent className="p-6">
-                <div className="space-y-4">
-                  <h3 className="text-xl font-bold group-hover:text-purple-400 transition-colors line-clamp-2">
-                    {post.title}
-                  </h3>
-                  
-                  <p className="text-gray-300 text-sm leading-relaxed line-clamp-3">
-                    {post.excerpt}
-                  </p>
-                  
-                  <div className="flex items-center gap-4 text-xs text-gray-400">
-                    <div className="flex items-center gap-1">
-                      <Calendar className="h-3 w-3" />
-                      <span>{new Date(post.created_at || post.date).toLocaleDateString()}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Clock className="h-3 w-3" />
-                      <span>{post.readTime || '5 min read'}</span>
-                    </div>
-                  </div>
-                  
-                  <Button 
-                    className="w-full bg-transparent border border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white rounded-full transition-all duration-300 group"
-                    onClick={() => {
-                      // Mock navigation to blog post
-                      console.log(`Reading blog post: ${post.slug}`);
-                    }}
+          <>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+              {featuredPosts.length > 0 ? featuredPosts.map((post) => (
+              <Card key={post.id} className="bg-gray-800/50 border-gray-700 hover:border-purple-400/50 transition-all duration-300 group overflow-hidden cursor-pointer">
+                <div className="relative overflow-hidden">
+                  <img 
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-60" />
+                  <Badge 
+                    className="absolute top-4 left-4 bg-purple-600/90 text-white"
                   >
-                    Read More
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
+                    {post.category}
+                  </Badge>
                 </div>
-              </CardContent>
-            </Card>
-          )) : (
-            <div className="col-span-full text-center py-12">
-              <p className="text-gray-400">No blog posts available yet.</p>
+                
+                <CardContent className="p-6">
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-bold group-hover:text-purple-400 transition-colors line-clamp-2">
+                      {post.title}
+                    </h3>
+                    
+                    <p className="text-gray-300 text-sm leading-relaxed line-clamp-3">
+                      {post.excerpt}
+                    </p>
+                    
+                    <div className="flex items-center gap-4 text-xs text-gray-400">
+                      <div className="flex items-center gap-1">
+                        <Calendar className="h-3 w-3" />
+                        <span>{new Date(post.created_at || post.date).toLocaleDateString()}</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Clock className="h-3 w-3" />
+                        <span>{post.readTime || '5 min read'}</span>
+                      </div>
+                    </div>
+                    
+                    <Button 
+                      className="w-full bg-transparent border border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white rounded-full transition-all duration-300 group"
+                      onClick={() => {
+                        // Mock navigation to blog post
+                        console.log(`Reading blog post: ${post.slug}`);
+                      }}
+                    >
+                      Read More
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            )) : (
+              <div className="col-span-full text-center py-12">
+                <p className="text-gray-400">No blog posts available yet.</p>
+              </div>
+            )}
             </div>
-          )}
-        </div>
 
-        {/* View All Posts Button */}
-        <div className="text-center">
-          <Button 
-            size="lg"
-            className="bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 group"
-            onClick={() => {
-              // Mock handler for viewing all blog posts
-              console.log('View all blog posts');
-            }}
-          >
-            <BookOpen className="mr-2 h-5 w-5" />
-            View All Posts
-            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
-        </div>
+            {/* View All Posts Button */}
+            <div className="text-center">
+              <Button 
+                size="lg"
+                className="bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 group"
+                onClick={() => {
+                  // Mock handler for viewing all blog posts
+                  console.log('View all blog posts');
+                }}
+              >
+                <BookOpen className="mr-2 h-5 w-5" />
+                View All Posts
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </div>
+          </>
         )}
       </div>
     </section>
