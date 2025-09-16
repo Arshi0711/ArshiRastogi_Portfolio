@@ -182,38 +182,40 @@ const TestimonialsSection = () => {
         </div>
 
         {/* All Testimonials Preview */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
-          {testimonials.map((testimonial, index) => (
-            <Card 
-              key={testimonial.id} 
-              className={`bg-gray-800/30 border-gray-700 cursor-pointer transition-all duration-300 hover:border-purple-400/50 ${
-                index === currentIndex ? 'border-purple-400 bg-gray-800/50' : ''
-              }`}
-              onClick={() => setCurrentIndex(index)}
-            >
-              <CardContent className="p-6 text-center">
-                <Avatar className="h-12 w-12 mx-auto mb-4">
-                  <AvatarFallback className="bg-cyan-600 text-white text-sm">
-                    {testimonial.name.split(' ').map(n => n[0]).join('')}
-                  </AvatarFallback>
-                </Avatar>
-                
-                <h4 className="font-semibold text-sm text-purple-400 mb-1">
-                  {testimonial.name}
-                </h4>
-                <p className="text-xs text-gray-400 mb-3">
-                  {testimonial.role}
-                </p>
-                
-                <div className="flex justify-center gap-1">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="h-3 w-3 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+        {testimonials.length > 1 && (
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
+            {testimonials.map((testimonial, index) => (
+              <Card 
+                key={testimonial.id} 
+                className={`bg-gray-800/30 border-gray-700 cursor-pointer transition-all duration-300 hover:border-purple-400/50 ${
+                  index === currentIndex ? 'border-purple-400 bg-gray-800/50' : ''
+                }`}
+                onClick={() => setCurrentIndex(index)}
+              >
+                <CardContent className="p-6 text-center">
+                  <Avatar className="h-12 w-12 mx-auto mb-4">
+                    <AvatarFallback className="bg-cyan-600 text-white text-sm">
+                      {testimonial?.name?.split(' ').map(n => n[0]).join('') || 'AR'}
+                    </AvatarFallback>
+                  </Avatar>
+                  
+                  <h4 className="font-semibold text-sm text-purple-400 mb-1">
+                    {testimonial?.name || 'Anonymous'}
+                  </h4>
+                  <p className="text-xs text-gray-400 mb-3">
+                    {testimonial?.role || 'Client'}
+                  </p>
+                  
+                  <div className="flex justify-center gap-1">
+                    {[...Array(testimonial?.rating || 5)].map((_, i) => (
+                      <Star key={i} className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
