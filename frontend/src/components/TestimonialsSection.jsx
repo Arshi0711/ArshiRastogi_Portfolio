@@ -137,12 +137,12 @@ const TestimonialsSection = () => {
                     </div>
 
                     {/* Testimonial Content */}
-                    <blockquote className="text-xl md:text-2xl text-gray-300 leading-relaxed italic font-medium">
+                    <blockquote key={currentIndex} className="text-xl md:text-2xl text-gray-300 leading-relaxed italic font-medium">
                       "{currentTestimonial ? currentTestimonial.content : 'Loading testimonial...'}"
                     </blockquote>
 
                     {/* Author Info */}
-                    <div className="flex items-center justify-center gap-4">
+                    <div key={`author-${currentIndex}`} className="flex items-center justify-center gap-4">
                       <Avatar className="h-16 w-16 border-2 border-purple-400">
                         <AvatarFallback className="bg-purple-600 text-white">
                           {currentTestimonial && currentTestimonial.name ? currentTestimonial.name.split(' ').map(n => n[0]).join('') : 'AR'}
