@@ -10,7 +10,7 @@ const HeroSection = ({ scrollToSection }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTitle((prev) => (prev + 1) % hero.titles.length);
-    }, 3000);
+    }, 1500);
     
     return () => clearInterval(interval);
   }, [hero.titles.length]);
