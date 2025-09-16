@@ -364,6 +364,42 @@ async def seed_initial_data():
             project = Project(**project_data)
             await db.projects.insert_one(project.dict())
         
+        # Initial testimonials
+        initial_testimonials = [
+            {
+                "name": "Dr. Patrick Leahy",
+                "role": "Supervisor, University of Manchester",
+                "content": "Arshi demonstrated exceptional analytical skills and dedication in her radio astronomy research. Her approach to calibration systems was both innovative and methodical.",
+                "rating": 5,
+                "approved": True
+            },
+            {
+                "name": "Sarah Mitchell",
+                "role": "Data Science Manager, Tech Corp",
+                "content": "Working with Arshi on our hospitality analytics project was outstanding. Her predictive models significantly improved our forecasting accuracy.",
+                "rating": 5,
+                "approved": True
+            },
+            {
+                "name": "Rahul Sharma",
+                "role": "Student, Career Consulting Client",
+                "content": "Arshi's career guidance was instrumental in my transition from physics to data science. Her insights into the industry were invaluable.",
+                "rating": 5,
+                "approved": True
+            },
+            {
+                "name": "Prof. Mousumi Das",
+                "role": "Associate Professor, Indian Institute of Astrophysics",
+                "content": "Arshi's work on galaxy merger identification showed remarkable scientific rigor. Her data visualization skills brought complex astronomical data to life.",
+                "rating": 5,
+                "approved": True
+            }
+        ]
+        
+        for testimonial_data in initial_testimonials:
+            testimonial = Testimonial(**testimonial_data)
+            await db.testimonials.insert_one(testimonial.dict())
+
         logger.info("Initial data seeded successfully")
         
     except Exception as e:
