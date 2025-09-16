@@ -192,7 +192,8 @@ async def get_projects(featured_only: bool = False):
     try:
         query = {"featured": True} if featured_only else {}
         projects = await db.projects.find(query).sort("created_at", -1).to_list(100)
-        return {"projects": projects}
+        serialized_projects = serialize_docs(projects)
+        return {"projects": serialized_projects}
     except Exception as e:
         logger.error(f"Failed to fetch projects: {str(e)}")
         raise HTTPException(status_code=500, detail="Failed to fetch projects")
