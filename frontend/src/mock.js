@@ -206,14 +206,14 @@ export const mockData = {
   // Skills & Expertise Data
   skills: {
     technical: [
-      { name: "Python", level: 90, years: 3 },
-      { name: "Machine Learning", level: 85, years: 2 },
-      { name: "Data Visualization", level: 88, years: 3 },
-      { name: "Power BI", level: 80, years: 1 },
-      { name: "Statistical Analysis", level: 85, years: 2 },
-      { name: "LaTeX", level: 75, years: 2 },
-      { name: "SQL", level: 70, years: 1 },
-      { name: "Scikit-learn", level: 82, years: 2 }
+      { name: "Python", level: 90 },
+      { name: "Machine Learning", level: 85 },
+      { name: "Data Visualization", level: 88 },
+      { name: "Power BI", level: 80 },
+      { name: "Statistical Analysis", level: 85 },
+      { name: "LaTeX", level: 75 },
+      { name: "SQL", level: 70 },
+      { name: "Scikit-learn", level: 82 }
     ],
     languages: [
       { name: "English", level: "Fluent" },
