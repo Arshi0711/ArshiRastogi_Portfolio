@@ -38,13 +38,21 @@ const TestimonialsSection = () => {
 
   const nextTestimonial = () => {
     if (testimonials.length > 0) {
-      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+      setCurrentIndex((prev) => {
+        const newIndex = (prev + 1) % testimonials.length;
+        console.log('Next testimonial:', prev, '->', newIndex);
+        return newIndex;
+      });
     }
   };
 
   const prevTestimonial = () => {
     if (testimonials.length > 0) {
-      setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+      setCurrentIndex((prev) => {
+        const newIndex = (prev - 1 + testimonials.length) % testimonials.length;
+        console.log('Prev testimonial:', prev, '->', newIndex);
+        return newIndex;
+      });
     }
   };
 
