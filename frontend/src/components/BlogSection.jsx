@@ -130,21 +130,6 @@ const BlogSection = () => {
           )}
         </div>
 
-        {/* View All Posts Button */}
-        <div className="text-center">
-          <Button 
-            size="lg"
-            className="bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 group"
-            onClick={() => {
-              // Mock handler for viewing all blog posts
-              console.log('View all blog posts');
-            }}
-          >
-            <BookOpen className="mr-2 h-5 w-5" />
-            View All Posts
-            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
-        </div>
         )}
       </div>
     </section>
