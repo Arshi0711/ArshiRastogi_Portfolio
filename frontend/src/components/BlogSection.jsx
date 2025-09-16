@@ -49,9 +49,31 @@ const BlogSection = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-cyan-400 mx-auto rounded-full mt-6" />
         </div>
 
+        {/* Loading State */}
+        {loading && (
+          <div className="text-center py-12">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-400 mx-auto mb-4"></div>
+            <p className="text-gray-300">Loading blog posts...</p>
+          </div>
+        )}
+
+        {/* Error State */}
+        {error && (
+          <div className="text-center py-12">
+            <p className="text-red-400 mb-4">Failed to load blog posts</p>
+            <Button 
+              onClick={() => window.location.reload()}
+              className="bg-purple-600 hover:bg-purple-700"
+            >
+              Try Again
+            </Button>
+          </div>
+        )}
+
         {/* Featured Blog Posts */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {featuredPosts.map((post) => (
+        {!loading && !error && (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {featuredPosts.length > 0 ? featuredPosts.map((post) => (
             <Card key={post.id} className="bg-gray-800/50 border-gray-700 hover:border-purple-400/50 transition-all duration-300 group overflow-hidden cursor-pointer">
               <div className="relative overflow-hidden">
                 <img 
