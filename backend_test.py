@@ -169,7 +169,7 @@ def main():
     
     # Test 9: CV Download
     print(f"\n📋 Testing CV Download Endpoint")
-    tester.test_endpoint("GET", "/cv/download", test_name="CV Download")
+    tester.test_endpoint("GET", "/cv/download", test_name="CV Download", is_file_download=True)
     
     # Additional validation tests
     print(f"\n📋 Testing Error Handling")
