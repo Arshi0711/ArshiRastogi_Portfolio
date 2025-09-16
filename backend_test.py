@@ -35,7 +35,7 @@ class APITester:
         self.failed = 0
         self.results = []
     
-    def test_endpoint(self, method, endpoint, data=None, expected_status=200, test_name=""):
+    def test_endpoint(self, method, endpoint, data=None, expected_status=200, test_name="", is_file_download=False):
         """Test an API endpoint and validate response"""
         url = f"{API_BASE}{endpoint}"
         
@@ -55,7 +55,7 @@ class APITester:
                     "test": test_name or f"{method} {endpoint}",
                     "status": "PASS",
                     "response_code": response.status_code,
-                    "response_data": response.json() if response.content else None
+                    "response_data": "File download" if is_file_download else (response.json() if response.content else None)
                 })
             else:
                 self.failed += 1
@@ -71,12 +71,14 @@ class APITester:
             print(f"{status} {test_name or f'{method} {endpoint}'} - Status: {response.status_code}")
             
             # Print response for debugging
-            if response.content:
+            if response.content and not is_file_download:
                 try:
                     response_data = response.json()
                     print(f"   Response: {json.dumps(response_data, indent=2)[:200]}...")
                 except:
                     print(f"   Response: {response.text[:200]}...")
+            elif is_file_download:
+                print(f"   Response: File download ({len(response.content)} bytes)")
             
             return response
             
