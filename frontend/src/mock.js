@@ -118,7 +118,7 @@ export const mockData = {
       id: 1,
       name: "Dr. Patrick Leahy",
       role: "Supervisor, University of Manchester",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+      image: "",
       content: "Arshi demonstrated exceptional analytical skills and dedication in her radio astronomy research. Her approach to calibration systems was both innovative and methodical.",
       rating: 5
     },
@@ -126,7 +126,7 @@ export const mockData = {
       id: 2,
       name: "Sarah Mitchell",
       role: "Data Science Manager, Tech Corp",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
+      image: "",
       content: "Working with Arshi on our hospitality analytics project was outstanding. Her predictive models significantly improved our forecasting accuracy.",
       rating: 5
     },
@@ -134,7 +134,7 @@ export const mockData = {
       id: 3,
       name: "Rahul Sharma",
       role: "Student, Career Consulting Client",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+      image: "",
       content: "Arshi's career guidance was instrumental in my transition from physics to data science. Her insights into the industry were invaluable.",
       rating: 5
     },
@@ -142,7 +142,7 @@ export const mockData = {
       id: 4,
       name: "Prof. Mousumi Das",
       role: "Associate Professor, Indian Institute of Astrophysics",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&crop=face",
+      image: "",
       content: "Arshi's work on galaxy merger identification showed remarkable scientific rigor. Her data visualization skills brought complex astronomical data to life.",
       rating: 5
     }
