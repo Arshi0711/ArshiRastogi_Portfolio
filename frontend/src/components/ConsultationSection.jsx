@@ -111,7 +111,7 @@ const ConsultationSection = () => {
                 </CardDescription>
                 <div className="pt-4">
                   <div className="text-4xl font-bold text-purple-400 mb-2">
-                    ${pkg.price}
+                    ${pkg.price} / {pkg.priceINR}
                   </div>
                   <div className="flex items-center justify-center gap-2 text-gray-400">
                     <Clock className="h-4 w-4" />
