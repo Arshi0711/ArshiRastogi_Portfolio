@@ -38,9 +38,9 @@ class ConsultationBookingCreate(BaseModel):
     client_name: str = Field(..., min_length=1, max_length=100)
     client_email: EmailStr
     package_id: int = Field(..., ge=1, le=3)
-    payment_method: str = Field(..., regex="^(stripe|paypal)$")
+    payment_method: str = Field(..., pattern="^(stripe|paypal)$")
     amount: float = Field(..., gt=0)
-    currency: str = Field(..., regex="^(USD|INR)$")
+    currency: str = Field(..., pattern="^(USD|INR)$")
 
 # Blog Post Models
 class BlogPost(BaseModel):
