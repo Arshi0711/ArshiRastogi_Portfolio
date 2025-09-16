@@ -17,25 +17,9 @@ const AboutSection = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-cyan-400 mx-auto rounded-full" />
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left Content - Image */}
-          <div className="flex justify-center">
-            <div className="relative">
-              <div className="w-80 h-80 md:w-96 md:h-96 rounded-2xl overflow-hidden shadow-2xl">
-                <img 
-                  src={about.image}
-                  alt="Arshi Rastogi"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              {/* Decorative Elements */}
-              <div className="absolute -top-6 -left-6 w-24 h-24 bg-purple-600/20 rounded-full blur-xl" />
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-cyan-600/20 rounded-full blur-xl" />
-            </div>
-          </div>
-
-          {/* Right Content - Text */}
-          <div className="space-y-8">
+        <div className="max-w-4xl mx-auto">
+          {/* Content - Text */}
+          <div className="space-y-8 text-center">
             <div className="space-y-6">
               <p className="text-lg text-gray-300 leading-relaxed">
                 {about.bio}
