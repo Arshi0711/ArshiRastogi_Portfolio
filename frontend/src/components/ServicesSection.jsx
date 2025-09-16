@@ -12,6 +12,7 @@ const ServicesSection = () => {
     BarChart3: BarChart3,
     Telescope: Telescope,
     PenTool: PenTool,
+    BookOpen: BookOpen,
     GraduationCap: GraduationCap
   };
 
