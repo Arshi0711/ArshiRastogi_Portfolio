@@ -141,7 +141,8 @@ async def get_blog_posts(published_only: bool = True):
     try:
         query = {"published": True} if published_only else {}
         posts = await db.blog_posts.find(query).sort("created_at", -1).to_list(100)
-        return {"posts": posts}
+        serialized_posts = serialize_docs(posts)
+        return {"posts": serialized_posts}
     except Exception as e:
         logger.error(f"Failed to fetch blog posts: {str(e)}")
         raise HTTPException(status_code=500, detail="Failed to fetch blog posts")
