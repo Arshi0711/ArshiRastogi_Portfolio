@@ -37,18 +37,24 @@ const TestimonialsSection = () => {
   }, []);
 
   const nextTestimonial = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    if (testimonials.length > 0) {
+      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    }
   };
 
   const prevTestimonial = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    if (testimonials.length > 0) {
+      setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    }
   };
 
   // Auto-play testimonials
   useEffect(() => {
-    const interval = setInterval(nextTestimonial, 5000);
-    return () => clearInterval(interval);
-  }, []);
+    if (testimonials.length > 1) {
+      const interval = setInterval(nextTestimonial, 5000);
+      return () => clearInterval(interval);
+    }
+  }, [testimonials.length]);
 
   const currentTestimonial = testimonials.length > 0 && currentIndex < testimonials.length ? testimonials[currentIndex] : testimonials[0];
 
