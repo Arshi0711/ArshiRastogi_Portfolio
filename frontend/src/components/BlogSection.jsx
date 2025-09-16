@@ -129,7 +129,6 @@ const BlogSection = () => {
             </div>
           )}
         </div>
-        )}
 
         {/* View All Posts Button */}
         <div className="text-center">
