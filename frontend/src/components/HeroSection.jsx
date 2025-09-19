@@ -34,7 +34,10 @@ const HeroSection = ({ scrollToSection }) => {
             <div className="space-y-6">
               <h1 className="text-5xl md:text-7xl font-bold leading-tight">
                 <span className="block text-white mb-2">
-                  Hello, I'm {hero.name}
+                  Hello, I'm
+                </span>
+                <span className="block text-white mb-2">
+                  {hero.name}
                 </span>
                 <span className="block bg-gradient-to-r from-purple-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent text-4xl md:text-5xl animate-pulse">
                   {hero.titles[currentTitle]}
