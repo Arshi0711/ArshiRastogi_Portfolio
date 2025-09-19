@@ -253,7 +253,7 @@ export const mockData = {
     email: "shranviras007@gmail.com",
     phone: "+91 6393635690",
     location: "Lucknow, Uttar Pradesh, India",
-    linkedIn: "https://www.linkedin.com/arshirastogi",
+    linkedIn: "https://www.linkedin.com/in/arshirastogi",
     github: "https://github.com/arshi-rastogi",
     twitter: "https://x.com/ArshiRastogi_07?t=o2mvSTE7hQsi8BcY7IW2KQ&s=09"
   }
